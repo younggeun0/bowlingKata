@@ -8,16 +8,16 @@ class Game {
 
     score() {
         let totalScore = 0;
-        let i = 0;
+        let frameIndex = 0;
 
         for (let frame = 0; frame < 10; frame++) {
-            if (this.rolls[i] + this.rolls[i + 1] === 10) {
+            if (this.rolls[frameIndex] + this.rolls[frameIndex + 1] === 10) {
                 // spare
-                totalScore += 10 + this.rolls[i + 2];
+                totalScore += 10 + this.rolls[frameIndex + 2];
             } else {
-                totalScore += this.rolls[i] + this.rolls[i + 1];
+                totalScore += this.rolls[frameIndex] + this.rolls[frameIndex + 1];
             }
-            i += 2;
+            frameIndex += 2;
         }
 
         return totalScore;
