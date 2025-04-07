@@ -1,8 +1,12 @@
 class Game {
-    roll(pins: number) {}
+    totalScore: number = 0;
+
+    roll(pins: number) {
+        this.totalScore += pins;
+    }
 
     score() {
-        return 0;
+        return this.totalScore;
     }
 }
 
