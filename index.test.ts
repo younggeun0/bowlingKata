@@ -8,18 +8,20 @@ describe("Game", () => {
         game = new Game();
     });
 
-    it("gutter game", () => {
-        for (let i = 0; i < 20; i++) {
-            game.roll(0);
+    function rollMany(n: number, pins: number) {
+        for (let i = 0; i < n; i++) {
+            game.roll(pins);
         }
+    }
+
+    it("gutter game", () => {
+        rollMany(20, 0);
 
         expect(game.score()).toBe(0);
     });
 
     it("all ones", () => {
-        for (let i = 0; i < 20; i++) {
-            game.roll(1);
-        }
+        rollMany(20, 1);
 
         expect(game.score()).toBe(20);
     });
