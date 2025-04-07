@@ -1,22 +1,26 @@
-import { it, expect } from "vitest";
+import { it, expect, describe, beforeEach } from "vitest";
 import { Game } from "./index";
 
-it("gutter game", () => {
-    const game = new Game();
+describe("Game", () => {
+    let game: Game;
 
-    for (let i = 0; i < 20; i++) {
-        game.roll(0);
-    }
+    beforeEach(function setUp() {
+        game = new Game();
+    });
 
-    expect(game.score()).toBe(0);
-});
+    it("gutter game", () => {
+        for (let i = 0; i < 20; i++) {
+            game.roll(0);
+        }
 
-it("all ones", () => {
-    const game = new Game();
+        expect(game.score()).toBe(0);
+    });
 
-    for (let i = 0; i < 20; i++) {
-        game.roll(1);
-    }
+    it("all ones", () => {
+        for (let i = 0; i < 20; i++) {
+            game.roll(1);
+        }
 
-    expect(game.score()).toBe(20);
+        expect(game.score()).toBe(20);
+    });
 });
