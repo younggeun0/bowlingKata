@@ -6,6 +6,18 @@ class Game {
         return this.rolls[frameIndex] + this.rolls[frameIndex + 1] === 10;
     }
 
+    private sumOfBallsInFrame(frameIndex: number) {
+        return this.rolls[frameIndex] + this.rolls[frameIndex + 1];
+    }
+
+    private spareBonus(frameIndex: number) {
+        return this.rolls[frameIndex + 2];
+    }
+
+    private strikeBonus(frameIndex: number) {
+        return this.rolls[frameIndex + 1] + this.rolls[frameIndex + 2];
+    }
+
     roll(pins: number) {
         this.rolls[this.currentRoll++] = pins;
     }
@@ -17,13 +29,13 @@ class Game {
         for (let frame = 0; frame < 10; frame++) {
             if (this.rolls[frameIndex] === 10) {
                 // strike
-                totalScore += 10 + this.rolls[frameIndex + 1] + this.rolls[frameIndex + 2];
+                totalScore += 10 + this.strikeBonus(frameIndex);
                 frameIndex += 1;
             } else if (this.isSpare(frameIndex)) {
-                totalScore += 10 + this.rolls[frameIndex + 2];
+                totalScore += 10 + this.spareBonus(frameIndex);
                 frameIndex += 2;
             } else {
-                totalScore += this.rolls[frameIndex] + this.rolls[frameIndex + 1];
+                totalScore += this.sumOfBallsInFrame(frameIndex);
                 frameIndex += 2;
             }
         }
