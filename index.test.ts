@@ -10,3 +10,13 @@ it("gutter game", () => {
 
     expect(game.score()).toBe(0);
 });
+
+it("all ones", () => {
+    const game = new Game();
+
+    for (let i = 0; i < 20; i++) {
+        game.roll(1);
+    }
+
+    expect(game.score()).toBe(20);
+});
