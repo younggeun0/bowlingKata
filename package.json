@@ -1,0 +1,16 @@
+{
+    "name": "bowling_kata",
+    "version": "1.0.0",
+    "description": "Bowling Kata",
+    "license": "MIT",
+    "author": "younggeun0",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "test": "vitest"
+    },
+    "dependencies": {
+        "typescript": "^5.8.3",
+        "vitest": "^3.1.1"
+    }
+}
