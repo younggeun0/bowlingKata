@@ -19,6 +19,10 @@ describe("Game", () => {
         game.roll(5);
     }
 
+    function rollStrike() {
+        game.roll(10);
+    }
+
     it("gutter game", () => {
         rollMany(20, 0);
 
@@ -41,7 +45,7 @@ describe("Game", () => {
     });
 
     it("test one strike", () => {
-        game.roll(10); // strike
+        rollStrike();
         game.roll(3);
         game.roll(4);
 

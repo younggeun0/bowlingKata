@@ -6,6 +6,10 @@ class Game {
         return this.rolls[frameIndex] + this.rolls[frameIndex + 1] === 10;
     }
 
+    private isStrike(frameIndex: number) {
+        return this.rolls[frameIndex] === 10;
+    }
+
     private sumOfBallsInFrame(frameIndex: number) {
         return this.rolls[frameIndex] + this.rolls[frameIndex + 1];
     }
@@ -27,7 +31,7 @@ class Game {
         let frameIndex = 0;
 
         for (let frame = 0; frame < 10; frame++) {
-            if (this.rolls[frameIndex] === 10) {
+            if (this.isStrike(frameIndex)) {
                 // strike
                 totalScore += 10 + this.strikeBonus(frameIndex);
                 frameIndex += 1;
