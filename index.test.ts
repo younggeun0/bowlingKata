@@ -14,6 +14,11 @@ describe("Game", () => {
         }
     }
 
+    function rollSpare() {
+        game.roll(5);
+        game.roll(5);
+    }
+
     it("gutter game", () => {
         rollMany(20, 0);
 
@@ -27,8 +32,7 @@ describe("Game", () => {
     });
 
     it("one spare", () => {
-        game.roll(5);
-        game.roll(5); // spare
+        rollSpare();
         game.roll(3);
 
         rollMany(17, 0);
