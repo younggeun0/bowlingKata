@@ -8,9 +8,11 @@ class Game {
 
     score() {
         let totalScore = 0;
+        let i = 0;
 
-        for (let i = 0; i < this.rolls.length; i++) {
-            totalScore += this.rolls[i];
+        for (let frame = 0; frame < 10; frame++) {
+            totalScore += this.rolls[i] + this.rolls[i + 1];
+            i += 2;
         }
 
         return totalScore;
