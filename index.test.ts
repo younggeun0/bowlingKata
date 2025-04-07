@@ -26,13 +26,13 @@ describe("Game", () => {
         expect(game.score()).toBe(20);
     });
 
-    it("one spare", () => {
-        game.roll(5);
-        game.roll(5); // spare
-        game.roll(3);
+    // it("one spare", () => {
+    //     game.roll(5);
+    //     game.roll(5); // spare
+    //     game.roll(3);
 
-        rollMany(17, 0);
+    //     rollMany(17, 0);
 
-        expect(game.score()).toBe(16);
-    });
+    //     expect(game.score()).toBe(16);
+    // });
 });

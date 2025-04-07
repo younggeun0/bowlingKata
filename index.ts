@@ -1,12 +1,19 @@
 class Game {
-    totalScore: number = 0;
+    rolls: number[] = [];
+    currentRoll: number = 0;
 
     roll(pins: number) {
-        this.totalScore += pins;
+        this.rolls[this.currentRoll++] = pins;
     }
 
     score() {
-        return this.totalScore;
+        let totalScore = 0;
+
+        for (let i = 0; i < this.rolls.length; i++) {
+            totalScore += this.rolls[i];
+        }
+
+        return totalScore;
     }
 }
 
