@@ -39,4 +39,14 @@ describe("Game", () => {
 
         expect(game.score()).toBe(16);
     });
+
+    it("test one strike", () => {
+        game.roll(10); // strike
+        game.roll(3);
+        game.roll(4);
+
+        rollMany(16, 0);
+
+        expect(game.score()).toBe(24);
+    });
 });
